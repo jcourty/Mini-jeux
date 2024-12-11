@@ -1,26 +1,26 @@
 import os
 from typing import TextIO
-from All import *
-from Devi import *
-from Mor import *
+from Allumettes import *
+from Devinette import *
+from Morpion import *
 from Menu import *
 
 
 if __name__=="__main__":
     f : TextIO
-    score_joueur1_devinette : int
-    score_joueur2_devinette  : int
-    score_joueur1_morpion : int
-    score_joueur2_morpion  : int
-    score_joueur1_alumettes : int
-    score_joueur2_alumettes  : int
+    score_j1_devinette : int
+    score_j2_devinette  : int
+    score_j1_morpion : int
+    score_j2_morpion  : int
+    score_j1_alumettes : int
+    score_j2_alumettes  : int
     
-    score_joueur2_devinette  = 0
-    score_joueur1_devinette  = 0
-    score_joueur1_morpion = 0
-    score_joueur2_morpion = 0
-    score_joueur1_alumettes = 0
-    score_joueur2_alumettes = 0
+    score_j2_devinette  = 0
+    score_j1_devinette  = 0
+    score_j1_morpion = 0
+    score_j2_morpion = 0
+    score_j1_alumettes = 0
+    score_j2_alumettes = 0
     j1:str
     j2:str
     aui:str
@@ -46,9 +46,9 @@ if __name__=="__main__":
 
             aui=devinette(j1,j2)
             if aui==j1:
-                score_joueur1_devinette = score_joueur1_devinette + 1
+                score_joueur1_devinette = score_j1_devinette + 1
             else :
-                score_joueur2_devinette = score_joueur2_devinette + 1
+                score_joueur2_devinette = score_j2_devinette + 1
             # sert a ne pas afficher le menu direct après 
             tmp=str(input("\033[91mPour continuer, appuyer sur entrée: "))#\033[91m couleur rouge pour le texte 
             os.system('cls' if os.name=='nt' else 'clear')
@@ -60,9 +60,9 @@ if __name__=="__main__":
             print("Bonne chance et que le meilleur gagne!\n")
             
             if allumette(j1,j2)==j1:
-                score_joueur1_alumettes = score_joueur1_alumettes + 1
+                score_joueur1_alumettes = score_j1_alumettes + 1
             else :
-                score_joueur2_alumettes = score_joueur2_alumettes + 1
+                score_joueur2_alumettes = score_j2_alumettes + 1
 
             tmp=str(input("\033[91mPour continuer, appuyer sur entrée: "))
             os.system('cls' if os.name=='nt' else 'clear')
@@ -73,10 +73,10 @@ if __name__=="__main__":
             print("Voici les règles du jeu: Le morpion est un jeu contenant deux symboles le X est le O. Votre but est d'aligner trois signes identique dans une grille de 9 cases. Chacun votre tour, il faudra donc déposer votre symboles stratégiquement pour gagner.\n")
             print("Bon jeu et que le meilleur gagne !\n")
 
-            if jeu_morpion(j1, j2,score_joueur1_morpion ,score_joueur2_morpion ) == j1:
-                score_joueur1_morpion  = score_joueur1_morpion  + 1
+            if jeu_morpion(j1, j2,score_j1_morpion ,score_j2_morpion ) == j1:
+                score_joueur1_morpion  = score_j1_morpion  + 1
             else :
-                score_joueur2_morpion  = score_joueur2_morpion  + 1
+                score_joueur2_morpion  = score_j2_morpion  + 1
 
             tmp=str(input("\033[91mPour continuer, appuyer sur entrée: "))
             os.system('cls' if os.name=='nt' else 'clear')
@@ -87,30 +87,30 @@ if __name__=="__main__":
             f.write('Devinette : ')
             f.write ('\n')
             f.write (j1)
-            f.write (': ' + str(score_joueur1_devinette))
+            f.write (': ' + str(score_j1_devinette))
             f.write ('\n')
             f.write (j2)
-            f.write (': ' + str(score_joueur2_devinette)) 
+            f.write (': ' + str(score_j2_devinette)) 
             f.write ('\n')
             f.write ('\n')
             # écrit le score pour le jeu du morpions
             f.write('Morpions : ')
             f.write ('\n')
             f.write (j1)
-            f.write (': ' + str(score_joueur1_morpion))
+            f.write (': ' + str(score_j1_morpion))
             f.write ('\n')
             f.write (j2)
-            f.write (': ' + str(score_joueur2_morpion)) 
+            f.write (': ' + str(score_j2_morpion)) 
             f.write ('\n')
             f.write ('\n')
             # écrit le score pour le jeu des alumettes
             f.write('Alumettes : ')
             f.write ('\n')
             f.write (j1)
-            f.write (': ' + str(score_joueur1_alumettes))
+            f.write (': ' + str(score_j1_alumettes))
             f.write ('\n')
             f.write (j2)
-            f.write (': ' + str(score_joueur2_alumettes)) 
+            f.write (': ' + str(score_j2_alumettes)) 
             f.close()   
             # affichage du fichier scores.txt 
             print("Tableau des scores : ")
@@ -138,11 +138,11 @@ if __name__=="__main__":
                 j2=str(input("Nouveau nom du joueur 2: "))
                 print("changement effectué")
                 
-            score_joueur2_devinette  = 0    #On change de joueru, on remet donc les scores à 0
-            score_joueur1_devinette  = 0
-            score_joueur1_morpion = 0
-            score_joueur2_morpion = 0
-            score_joueur1_alumettes = 0
-            score_joueur2_alumettes = 0
+            score_j2_devinette  = 0    #On change de joueru, on remet donc les scores à 0
+            score_j1_devinette  = 0
+            score_j1_morpion = 0
+            score_j2_morpion = 0
+            score_j1_alumettes = 0
+            score_j2_alumettes = 0
         
     print("A plus dans le bus ",j1,"et",j2,". Au plaisir de vous revoir.")  

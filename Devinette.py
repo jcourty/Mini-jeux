@@ -54,6 +54,8 @@ def devinette (j1 : str, j2 : str) ->str:
                         if triche>3 : 
                             choix = 0
                             print("Vous avez déjà triché trois fois")
+                            print(j1," a triché trop de fois. ", j2," vous gagner cette partie.")
+                            return devine
                 elif choix == 2 :
                     print("Le nombre de", j2, "est inférieur à celui de", j1)
                     if n2>n or n2==n :
@@ -61,6 +63,8 @@ def devinette (j1 : str, j2 : str) ->str:
                         if triche>3 : 
                             choix = 0
                             print("Vous avez déjà triché trois fois")
+                            print(j1," a triché trop de fois. ", j2," vous gagner cette partie.")
+                            return devine
                 else :
                     choix = 0
         elif start == 2 :      #Si Joueur 2 fait deviner
@@ -77,7 +81,7 @@ def devinette (j1 : str, j2 : str) ->str:
                         if triche>3 : 
                             choix = 0
                             print("Vous avez déjà tricher trois fois")
-                            print(start," a triché trop de fois. ", devine," vous gagner cette partie.")
+                            print(j2," a triché trop de fois. ", j1," vous gagner cette partie.")
                             return devine
                 elif choix == 2 :
                     print("Le nombre de", j1, "est inférieur à celui de", j2)
@@ -86,7 +90,7 @@ def devinette (j1 : str, j2 : str) ->str:
                         if triche>3 : 
                             choix = 0
                             print("Vous avez déjà tricher trois fois")
-                            print(start," a triché trop de fois. ", devine," vous gagner cette partie.")
+                            print(j2," a triché trop de fois. ", j1," vous gagner cette partie.")
                             return devine
                 else :
                     choix = 0

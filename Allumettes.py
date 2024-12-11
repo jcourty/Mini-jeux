@@ -8,7 +8,7 @@ from Controle import controle
     retourne une chaine de caractère qui correspond au nom du joueur qui a gagné
 """
 def allumette(j1 : str, j2 : str)->str:
-    choix : int         #Choix du nombre d'allumettes retirées
+    choix : int         #Choix du nombre d'allumettes a retirer
     alu : int           #Compte les allumettes
     nb_alu : str        #Affichage des allumettes
     start : int         #Définition du premier joueur et du deuxième joueur
@@ -26,7 +26,7 @@ def allumette(j1 : str, j2 : str)->str:
     alu = 20
     turn = 1
 
-    for i in range(0, alu) :    #Remplis la viriable pour y mettre le bon nombre d'allumettes
+    for i in range(0, alu) :    #Remplis la variable pour y mettre le bon nombre d'allumettes
         nb_alu = nb_alu+"| "
 
     print (nb_alu)          #Affiche la quantité d'allumettes sous forme de batônnets
