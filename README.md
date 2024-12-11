@@ -1,4 +1,5 @@
-The official "jeuxPour2"_2.0
+The official "jeuxPour2"_2.0. :sparkles:
+
 It's basicaly the same project but improved or changed in certain point
 
 
