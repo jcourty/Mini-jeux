@@ -1,5 +1,11 @@
 from Controle import *
 
+def count20(val:int,min:int,max:int):
+    while val<min or val>max :
+        print("Erreur")
+        val = int(input("Saisir la valeur"))
+    return val
+
 """ Procédure permettant d"afficher la grille du morpion
 arguements: grille (list[str]) : reprsente grille du morpion
 """
@@ -38,9 +44,9 @@ def jeu(grille:list[str], tour:str,j1:str,j2:str):
     # le tour du joueur, il choisi sa case
     print("A "+str(tour)," de jouer")
     col=int(input("Entrez le numero de la colonne : "))
-    col = controle(col,0,2)
+    col = count20(col,0,2)
     lig=int(input("Entrez le numero de la ligne : "))
-    lig = controle(lig,0,2)
+    lig = count20(lig,0,2)
     print("")
     print("Vous avez choisi la case en position (", col, ",", lig, ")")
 
@@ -49,9 +55,9 @@ def jeu(grille:list[str], tour:str,j1:str,j2:str):
         aff(grille) # affiche la grille pour pouvoir voir les case vide
         print("Case déjà prise ! choisissez une autre case !")
         col=int(input("Entrez le numero de la colonne : "))
-        col= controle(col,0,2)
+        col= count20(col,0,2)
         lig=int(input("Entrez le numero de la ligne : "))
-        lig = controle(lig,0,2)
+        lig = count20(lig,0,2)
         print("Vous avez joué la case (", col, ",", lig, ")")
  
     if tour == j1 :
@@ -103,7 +109,7 @@ def match_nul(grille:list[str]):
             return 0
     return 1
 
-def jeu_morpion(j1:str, j2:str, scorej1:int, scorej2:int)-> str:
+def jeu_morpion(j1:str, j2:str, scorej1:int, scorej2:int)-> int:
     joueur : str
     gagne : int
     grille : list[str]
@@ -125,12 +131,12 @@ def jeu_morpion(j1:str, j2:str, scorej1:int, scorej2:int)-> str:
                 scorej1 = scorej1 + 1
                 print(scorej1, "pour", j1)
                 print(scorej2, "pour", j2)
-                return j1
+                return 1
             else:
                 score_j2 = scorej2 + 1
                 print(scorej1, "pour", j1)
                 print(score_j2, "pour", j2)
-                return j2
+                return 2
             
         else:       # teste si il y a un match nul.
             if match_nul(grille):
@@ -142,17 +148,4 @@ def jeu_morpion(j1:str, j2:str, scorej1:int, scorej2:int)-> str:
             joueur = j2
         else:
             joueur = j1  
-    return " Personne "
-
-"""
-if __name__=="__main__":
-    c:str
-    joueur1:str
-    joueur2:str
-
-    joueur1=input("Nom du joueur 1: ")
-    joueur2=input("Nom du joueur 2: ")
-
-    c=jeu_morpion(joueur1, joueur2, 0, 0)
-    print(c)
-"""
+    return 3

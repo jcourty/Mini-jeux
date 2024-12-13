@@ -34,21 +34,21 @@ if __name__=="__main__":
 
     print("\033[90m Bienvenue",j1,"et",j2, "dans le ")
     
-    while choix!=5:
+    while choix!=6:
         choix=menu()
 
         if choix==1:
             os.system('cls' if os.name=='nt' else 'clear')
             print("Bienvenue dans le jeu des devinettes !\n")
             print("Dans ce jeu, l'un de vous devra choisir un nombre secret. L'adversaire devra alors faire des hypothèses sur le nombre, aider des commentaires (plus grand ou plus petit) du joueur.\n")
-            print("\033[91mPourATTENTION, celui qui fait deviner à le droit de tricher trois fois en donnant une mauvaise réponse.")
-            print("Bonne partie!\n")
+            print("\033[91mATTENTION, celui qui fait deviner à le droit de tricher trois fois en donnant une mauvaise réponse.")
+            print("\033[97mBonne partie!\n")
 
-            aui=devinette(j1,j2)
-            if aui==j1:
-                score_joueur1_devinette = score_j1_devinette + 1
+            
+            if devinette(j1,j2)==1:
+                score_j1_devinette = score_j1_devinette + 1
             else :
-                score_joueur2_devinette = score_j2_devinette + 1
+                score_j2_devinette = score_j2_devinette + 1
             # sert a ne pas afficher le menu direct après 
             tmp=str(input("\033[91mPour continuer, appuyer sur entrée: "))#\033[91m couleur rouge pour le texte 
             os.system('cls' if os.name=='nt' else 'clear')
@@ -60,9 +60,9 @@ if __name__=="__main__":
             print("Bonne chance et que le meilleur gagne!\n")
             
             if allumette(j1,j2)==j1:
-                score_joueur1_alumettes = score_j1_alumettes + 1
+                score_j1_alumettes = score_j1_alumettes + 1
             else :
-                score_joueur2_alumettes = score_j2_alumettes + 1
+                score_j2_alumettes = score_j2_alumettes + 1
 
             tmp=str(input("\033[91mPour continuer, appuyer sur entrée: "))
             os.system('cls' if os.name=='nt' else 'clear')
@@ -73,10 +73,11 @@ if __name__=="__main__":
             print("Voici les règles du jeu: Le morpion est un jeu contenant deux symboles le X est le O. Votre but est d'aligner trois signes identique dans une grille de 9 cases. Chacun votre tour, il faudra donc déposer votre symboles stratégiquement pour gagner.\n")
             print("Bon jeu et que le meilleur gagne !\n")
 
-            if jeu_morpion(j1, j2,score_j1_morpion ,score_j2_morpion ) == j1:
-                score_joueur1_morpion  = score_j1_morpion  + 1
-            else :
-                score_joueur2_morpion  = score_j2_morpion  + 1
+            miette = jeu_morpion(j1, j2,score_j1_morpion ,score_j2_morpion ) 
+            if miette == 1:
+                score_j1_morpion  = score_j1_morpion  + 1
+            elif miette ==2:
+                score_j2_morpion  = score_j2_morpion  + 1
 
             tmp=str(input("\033[91mPour continuer, appuyer sur entrée: "))
             os.system('cls' if os.name=='nt' else 'clear')
@@ -121,6 +122,9 @@ if __name__=="__main__":
             print(message)
             f.close()
             print("")
+
+            tmp=str(input("\033[91mPour continuer, appuyer sur entrée: "))
+            os.system('cls' if os.name=='nt' else 'clear')
 
         if choix==5:
             print("1-changer le nom du joeueur 1")

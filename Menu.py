@@ -30,7 +30,7 @@ def menu()->int:
     print("|____________________________________________|")
     c=int(input("\033[97mQue voulez vous faire: "))
 
-    tmp=controle(c,1,5)
+    tmp=controle(c,1,6)
     if tmp==False:
         c=menu() #fonction récursive si le choix n'est pas dans les bornes. Pour pouvoir retaper un choix
     return c
