@@ -26,11 +26,29 @@ def menu()->int:
     print(" \033[90m____________________________________________ ")
     print("|                                            |")
     for i in options:
-        print("|              ",i,"-",options[i],"              |")
+        print("|              ",i,"-",options[i],"       |")
     print("|____________________________________________|")
     c=int(input("\033[97mQue voulez vous faire: "))
 
     tmp=controle(c,1,6)
     if tmp==False:
+        print("Erreur de valeur")
         c=menu() #fonction récursive si le choix n'est pas dans les bornes. Pour pouvoir retaper un choix
     return c
+
+
+def camaDeJeu() ->int:
+    choix:int
+    ok:bool
+
+    print("1- Joueur VS Joueur ")
+    print("2- Joueur VS Ordi   ")
+    print("3- Ordi VS Ordi     ")
+    print("4- Annuler          ")
+    choix=int(input("Avec qui voulez-vous jouer : "))
+
+    ok=controle(choix,1,4)
+    if ok==False:
+        print("Erreur de valeur")
+        choix=int(input("Avec qui voulez-vous jouer : "))
+    return choix
