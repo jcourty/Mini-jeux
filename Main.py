@@ -5,8 +5,8 @@ from Devinette import *
 from Morpion import *
 from Menu import *
 from Change import *
-#from Morpion_full_Ordi import *
-#from Morpion_J1_O1 import *
+from Morpion_full_Ordi import *
+from Morpion_J1_O1 import *
 
 if __name__=="__main__":
     f : TextIO
@@ -139,7 +139,7 @@ if __name__=="__main__":
                     if j1=="Ordi1": #Si on a fait jouer les ordi ensemble, pour reprendre des noms de joueur normaux
                         j1, j2 =changJoueur(j1,j2,3)
                     j2="Ordi1"
-                    """miette = morpionJVSO(j1, j2,score_j1_morpion ,score_j2_morpion ) 
+                    miette = morpionJVSO(j1, j2,score_j1_morpion ,score_j2_morpion ) 
                     if miette == 1:
                         score_j1_morpion  = score_j1_morpion  + 1
                     elif miette ==2:
@@ -152,7 +152,7 @@ if __name__=="__main__":
                     if miette == 1:
                         score_j1_morpion  = score_j1_morpion  + 1
                     elif miette ==2:
-                        score_j2_morpion  = score_j2_morpion  + 1"""
+                        score_j2_morpion  = score_j2_morpion  + 1
 
                 tmp=str(input("\033[91mPour continuer, appuyer sur entrée: "))
                 os.system('cls' if os.name=='nt' else 'clear')
